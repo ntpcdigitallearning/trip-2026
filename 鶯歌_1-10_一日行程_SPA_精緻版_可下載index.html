@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>鶯歌出發｜1/10 一日逛街行程（小米之家×土城日月光×南雅夜市）</title>
+
+  <!-- Tailwind CSS（Play CDN） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js（CDNJS） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js" referrerpolicy="no-referrer"></script>
+
+  <style>
+    html { color-scheme: light; }
+    .tab-active { color: rgb(37 99 235); border-bottom: 2px solid rgb(37 99 235); font-weight: 700; }
+    .tab-inactive { color: rgb(75 85 99); }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold">鶯歌出發｜1/10 一日逛街行程</h1>
+        <p class="text-sm text-slate-600">小米之家（土城）→ 日月光廣場 ASE PLAZA → 板橋府中/南雅夜市（胡椒餅×糖葫蘆×波霸珍奶）</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <span class="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold">預算：NT$ 3,000 / 2人</span>
+        <span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold">當天來回</span>
+        <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-3 py-1 text-xs font-semibold">逛街為主・不跑遠</span>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="max-w-6xl mx-auto px-4">
+      <ul class="flex gap-4 sm:gap-6 overflow-x-auto py-2 text-sm">
+        <li><a class="tab tab-active pb-2 whitespace-nowrap" href="#" data-target="overview">行程總覽</a></li>
+        <li><a class="tab tab-inactive pb-2 whitespace-nowrap" href="#" data-target="transport">交通與圖表</a></li>
+        <li><a class="tab tab-inactive pb-2 whitespace-nowrap" href="#" data-target="itinerary">每日行程（時間軸）</a></li>
+        <li><a class="tab tab-inactive pb-2 whitespace-nowrap" href="#" data-target="foodmap">美食地圖（可篩選）</a></li>
+        <li><a class="tab tab-inactive pb-2 whitespace-nowrap" href="#" data-target="prep">行前準備</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Overview -->
+    <section id="overview" class="sec">
+      <div class="grid lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-lg font-bold mb-2">路線概覽（逛街最順線）</h2>
+          <ol class="list-decimal pl-5 text-sm leading-7 text-slate-700">
+            <li><span class="font-semibold">鶯歌 → 板橋</span>：台鐵（快速進市區）</li>
+            <li><span class="font-semibold">板橋/府中 → 土城海山 → 小米之家</span>：捷運藍線＋步行（先完成指定點）</li>
+            <li><span class="font-semibold">土城日月光廣場 ASE PLAZA</span>：室內逛街／補給（不怕天氣）</li>
+            <li><span class="font-semibold">回板橋府中／南雅夜市</span>：胡椒餅＋糖葫蘆＋波霸珍珠奶茶（夜市最對味）</li>
+            <li><span class="font-semibold">板橋 → 鶯歌</span>：台鐵回家（當天來回）</li>
+          </ol>
+
+          <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <p class="text-sm text-slate-700">
+              這版行程已移除烏來（太遠），改成 <span class="font-semibold">土城商場＋板橋夜市</span>，
+              節奏更舒服、也更符合「逛街為主」的一日來回。
+            </p>
+          </div>
+
+          <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
+            <div class="p-4 rounded-xl border border-slate-200 bg-white">
+              <div class="font-semibold mb-1">拍照加分點（免費、順路）</div>
+              <ul class="list-disc pl-5 text-slate-700 leading-6">
+                <li>府中街區散步（街景、招牌、巷弄）</li>
+                <li>林本源園邸周邊（外圍也好拍）</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-white">
+              <div class="font-semibold mb-1">逛街加分點（室內）</div>
+              <ul class="list-disc pl-5 text-slate-700 leading-6">
+                <li>土城日月光廣場 ASE PLAZA（餐飲＋快閃＋購物）</li>
+                <li>府中商圈（夜市前後都能逛）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-lg font-bold mb-3">必去 & 必吃（已鎖定）</h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">① 小米之家（土城裕民授權店）</div>
+              <a class="text-blue-700 underline" target="_blank"
+                 href="https://www.google.com/maps?q=新北市土城區裕民路81號">
+                 Google Maps：新北市土城區裕民路81號
+              </a>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">② 土城日月光廣場 ASE PLAZA</div>
+              <a class="text-blue-700 underline" target="_blank"
+                 href="https://www.google.com/maps?q=土城日月光廣場 ASE PLAZA">
+                 Google Maps：土城日月光廣場 ASE PLAZA
+              </a>
+              <div class="text-xs text-slate-500 mt-1">建議：在這裡休息補給、逛街不趕。</div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">③ 南雅夜市 / 府中美食段</div>
+              <a class="text-blue-700 underline" target="_blank"
+                 href="https://www.google.com/maps?q=南雅夜市">
+                 Google Maps：南雅夜市
+              </a>
+              <div class="text-xs text-slate-500 mt-1">必吃：胡椒餅＋糖葫蘆；飲料：波霸珍珠奶茶。</div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">＋ 特別飲料（你指定）</div>
+              <div class="text-slate-700">✅ <span class="font-semibold">波霸珍珠奶茶（板橋老店）</span>：夜市邊走邊喝、很有在地感。</div>
+              <a class="text-blue-700 underline text-sm" target="_blank"
+                 href="https://www.google.com/maps?q=新北市板橋區中山路一段50巷1弄4號">
+                 Google Maps：波霸珍珠奶茶
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4 text-xs text-slate-500">
+            小提醒：此單檔 SPA 用 CDN 載入 Tailwind / Chart.js（因此需要網路）。如果你要「完全離線版」，我也可以再幫你做一份。
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h3 class="text-base font-bold mb-2">停留時間比例（圓餅圖）</h3>
+          <canvas id="stayPie" class="w-full"></canvas>
+          <p class="text-xs text-slate-500 mt-2">提示：滑鼠／手指移到圖上可看各點停留時間。</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h3 class="text-base font-bold mb-2">預算粗估（2人）</h3>
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-slate-500">交通（台鐵＋捷運＋YouBike）</div>
+              <div class="text-lg font-bold">~ NT$ 500–700</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-slate-500">美食＋手搖（夜市）</div>
+              <div class="text-lg font-bold">~ NT$ 700–1,200</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-slate-500">購物（小米／商場）</div>
+              <div class="text-lg font-bold">~ NT$ 0–1,500</div>
+            </div>
+            <div class="p-3 rounded-xl bg-blue-50 border border-blue-200">
+              <div class="text-blue-700">總預估</div>
+              <div class="text-lg font-bold text-blue-800">≤ NT$ 3,000</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">這版把遠程交通拿掉，更容易控制時間與預算。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transport -->
+    <section id="transport" class="sec hidden">
+      <div class="grid lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-lg font-bold mb-2">交通方式與段落建議</h2>
+
+          <div class="space-y-3 text-sm leading-7 text-slate-700">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="font-semibold mb-1">YouBike 借還車建議（府中拍照段｜選配）</div>
+              <ul class="list-disc pl-5">
+                <li>
+                  借車：<span class="font-semibold">YouBike 2.0｜捷運府中站(1號出口)</span>
+                  <a class="text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=YouBike 捷運府中站 1號出口">地圖</a>
+                </li>
+                <li>
+                  還車：<span class="font-semibold">YouBike 2.0｜林本源園邸</span>
+                  <a class="text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=林本源園邸 文昌街24巷1號">地圖</a>
+                </li>
+              </ul>
+              <p class="text-xs text-slate-500 mt-1">如果站點滿柱／無車，可改用步行（府中站↔林本源園邸約10–12分鐘）。</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="font-semibold mb-1">土城段動線（小米 → 商場）</div>
+              <p>小米之家完成後，直接前往 <span class="font-semibold">日月光廣場 ASE PLAZA</span> 室內逛街、補給。</p>
+              <a class="text-blue-700 underline" target="_blank" href="https://www.google.com/maps/dir/新北市土城區裕民路81號/土城日月光廣場 ASE PLAZA">查看建議路線</a>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <h3 class="text-base font-bold mb-2">各段「預估時間 vs 費用」比較（長條圖）</h3>
+            <canvas id="timeCostBar" class="w-full"></canvas>
+            <p class="text-xs text-slate-500 mt-2">提示：移到柱狀上可看數值。時間為「單段預估」；實際以當天交通狀況為準。</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-lg font-bold mb-2">交通小抄</h2>
+          <ul class="text-sm text-slate-700 space-y-3">
+            <li class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">台鐵</div>
+              <div class="text-slate-600">鶯歌 ↔ 板橋：最快最穩</div>
+            </li>
+            <li class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">捷運（藍線）</div>
+              <div class="text-slate-600">板橋/府中 → 海山（土城）→ 回板橋</div>
+            </li>
+            <li class="p-3 rounded-xl border border-slate-200">
+              <div class="font-semibold">步行</div>
+              <div class="text-slate-600">商場與夜市都是步行友善</div>
+            </li>
+          </ul>
+
+          <div class="mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800">
+            這版不跑遠：想更悠閒，就把「府中/夜市」時間拉長即可。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Itinerary -->
+    <section id="itinerary" class="sec hidden">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+        <div class="flex items-end justify-between gap-3 flex-wrap">
+          <h2 class="text-lg font-bold">每日行程（Timeline）</h2>
+          <span class="text-xs text-slate-500">每個點都附 Google Maps；可按連結直接導航</span>
+        </div>
+
+        <ol class="relative border-l border-slate-200 mt-4 ml-3">
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">09:00｜鶯歌 → 板橋（台鐵）</div>
+              <div class="text-xs text-slate-500">移動：~20 分｜費用：~NT$ 30/人</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">抵達板橋後先在府中/板橋站周邊整理步調，準備轉捷運去土城。</p>
+            <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps/dir/鶯歌車站/板橋車站">路線：鶯歌車站 → 板橋車站</a>
+          </li>
+
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">09:40｜板橋/府中 → 土城海山（捷運藍線）</div>
+              <div class="text-xs text-slate-500">移動：~20–30 分｜費用：~NT$ 25/人</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">捷運到海山站後，步行前往裕民路小米門市。</p>
+            <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps/dir/捷運府中站/捷運海山站">路線：府中站 → 海山站</a>
+          </li>
+
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">10:30–11:30｜小米之家（土城裕民）</div>
+              <div class="text-xs text-slate-500">停留：~60 分</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">看新品、試用、想買就直接結帳，節省來回。</p>
+            <a class="text-sm text-blue-700 underline" target="_blank"
+               href="https://www.google.com/maps?q=新北市土城區裕民路81號">Google Maps：小米之家（土城裕民）</a>
+          </li>
+
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">11:40–13:40｜土城日月光廣場 ASE PLAZA（逛街＋午餐/補給）</div>
+              <div class="text-xs text-slate-500">停留：~2 小時（彈性）</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">室內逛街、吃點東西、補水上廁所，讓下午行程更舒服。</p>
+            <div class="mt-2 flex flex-col gap-1">
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=土城日月光廣場 ASE PLAZA">Google Maps：ASE PLAZA</a>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps/dir/新北市土城區裕民路81號/土城日月光廣場 ASE PLAZA">路線：小米之家 → ASE PLAZA</a>
+            </div>
+          </li>
+
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">14:00｜土城 → 板橋府中（捷運藍線）</div>
+              <div class="text-xs text-slate-500">移動：~25–35 分｜費用：~NT$ 25/人</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">回到府中商圈：拍照、逛街、等夜市開場。</p>
+            <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps/dir/捷運海山站/捷運府中站">路線：海山站 → 府中站</a>
+          </li>
+
+          <li class="ml-6">
+            <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-600"></span>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="font-semibold">17:00–19:30｜南雅夜市美食收尾（胡椒餅×糖葫蘆×波霸珍奶）</div>
+              <div class="text-xs text-slate-500">停留：~2–2.5 小時（彈性）</div>
+            </div>
+            <p class="text-sm text-slate-700 mt-2">
+              建議順序：<span class="font-semibold">胡椒餅當主食 → 糖葫蘆當甜點 → 波霸珍奶邊走邊喝</span>（夜市解膩又很在地）。
+            </p>
+            <div class="mt-2 flex flex-col gap-1">
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=南雅夜市">Google Maps：南雅夜市</a>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區館前西路127號之1號">胡椒餅：野原湳雅胡椒餅</a>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區中山路一段50巷11號">甜點：烏來伯糖葫蘆（板橋）</a>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區中山路一段50巷1弄4號">飲料：波霸珍珠奶茶</a>
+            </div>
+          </li>
+        </ol>
+
+        <div class="mt-5 p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700">
+          <span class="font-semibold">回程建議：</span> 20:00 前往板橋車站最保險（若想再逛一點也可以，但請留緩衝）。
+          <a class="text-blue-700 underline ml-1" target="_blank" href="https://www.google.com/maps/dir/南雅夜市/板橋車站">夜市 → 板橋車站</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Foodmap -->
+    <section id="foodmap" class="sec hidden">
+      <div class="grid lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <div class="flex items-end justify-between gap-3 flex-wrap">
+            <h2 class="text-lg font-bold">美食地圖（可篩選）</h2>
+            <div class="flex gap-2 flex-wrap">
+              <button class="filter-btn px-3 py-1 rounded-full text-sm bg-slate-100 hover:bg-slate-200" data-filter="all">全部</button>
+              <button class="filter-btn px-3 py-1 rounded-full text-sm bg-slate-100 hover:bg-slate-200" data-filter="snack">小吃</button>
+              <button class="filter-btn px-3 py-1 rounded-full text-sm bg-slate-100 hover:bg-slate-200" data-filter="dessert">甜點</button>
+              <button class="filter-btn px-3 py-1 rounded-full text-sm bg-slate-100 hover:bg-slate-200" data-filter="drink">茶飲</button>
+              <button class="filter-btn px-3 py-1 rounded-full text-sm bg-slate-100 hover:bg-slate-200" data-filter="mall">商場</button>
+            </div>
+          </div>
+
+          <div class="mt-4 space-y-3" id="foodList">
+            <article class="food-item p-4 rounded-xl border border-slate-200" data-cat="snack">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold">野原湳雅胡椒餅（府中/南雅）</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-amber-50 text-amber-700">小吃</span>
+              </div>
+              <p class="text-sm text-slate-700 mt-1">夜市主食首選：熱熱吃最香。</p>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區館前西路127號之1號">Google Maps</a>
+            </article>
+
+            <article class="food-item p-4 rounded-xl border border-slate-200" data-cat="dessert">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold">烏來伯糖葫蘆（板橋）</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-pink-50 text-pink-700">甜點</span>
+              </div>
+              <p class="text-sm text-slate-700 mt-1">酸甜解膩，夜市邊走邊吃很剛好。</p>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區中山路一段50巷11號">Google Maps</a>
+            </article>
+
+            <article class="food-item p-4 rounded-xl border border-slate-200" data-cat="drink">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold">波霸珍珠奶茶（板橋老店）</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">茶飲</span>
+              </div>
+              <p class="text-sm text-slate-700 mt-1">你指定的「比較特別」：老台式風味，配夜市超搭（邊走邊喝）。</p>
+              <div class="text-xs text-slate-500 mt-1">推薦：微糖紅茶／微糖奶茶；想清爽就無糖茶</div>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=新北市板橋區中山路一段50巷1弄4號">Google Maps</a>
+            </article>
+
+            <article class="food-item p-4 rounded-xl border border-slate-200" data-cat="mall">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold">土城日月光廣場 ASE PLAZA（補給/逛街）</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700">商場</span>
+              </div>
+              <p class="text-sm text-slate-700 mt-1">室內逛街＋餐飲補給點（雨天也不怕）。</p>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=土城日月光廣場 ASE PLAZA">Google Maps</a>
+            </article>
+
+            <article class="food-item p-4 rounded-xl border border-slate-200" data-cat="snack dessert">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold">南雅夜市（逛吃大集合）</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700">夜市</span>
+              </div>
+              <p class="text-sm text-slate-700 mt-1">看到想吃的、排隊不誇張就買，彈性最高。</p>
+              <a class="text-sm text-blue-700 underline" target="_blank" href="https://www.google.com/maps?q=南雅夜市">Google Maps</a>
+            </article>
+          </div>
+        </div>
+
+        <aside class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-lg font-bold mb-2">小提醒</h2>
+          <ul class="text-sm text-slate-700 space-y-3">
+            <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="font-semibold">篩選怎麼用？</div>
+              <div class="text-slate-600">點上方「小吃／甜點／茶飲／商場」按鈕即可篩選。</div>
+            </li>
+            <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="font-semibold">排隊策略</div>
+              <div class="text-slate-600">胡椒餅/糖葫蘆可能排隊：先吃胡椒餅，甜點看狀況。</div>
+            </li>
+            <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="font-semibold">飲料順序</div>
+              <div class="text-slate-600">波霸珍奶放最後：邊逛邊喝、也比較解膩。</div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Prep -->
+    <section id="prep" class="sec hidden">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+        <h2 class="text-lg font-bold mb-2">行前準備（1分鐘看懂）</h2>
+        <ul class="list-disc pl-5 text-sm text-slate-700 leading-7">
+          <li><span class="font-semibold">悠遊卡/一卡通</span>：捷運、台鐵（部分）、YouBike 都能用。</li>
+          <li><span class="font-semibold">舒適鞋</span>：夜市＋商場走路多但不趕路。</li>
+          <li><span class="font-semibold">行動電源</span>：拍照＋導航很吃電。</li>
+          <li><span class="font-semibold">濕紙巾</span>：夜市非常需要。</li>
+        </ul>
+
+        <div class="mt-4 p-4 rounded-xl bg-blue-50 border border-blue-200 text-sm text-blue-900">
+          已移除烏來老街，改為「土城日月光＋南雅夜市」逛街動線；並已加入你指定的「波霸珍珠奶茶」。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="text-xs text-slate-500">
+      註：本 HTML 為單檔 SPA（需要網路載入 Tailwind/Chart.js CDN）。若你要完全離線版，我也可以再做一份。
+    </div>
+  </footer>
+
+  <script>
+    // SPA Tabs
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.sec');
+
+    function showSection(id) {
+      sections.forEach(s => s.classList.toggle('hidden', s.id !== id));
+      tabs.forEach(t => {
+        const active = t.dataset.target === id;
+        t.classList.toggle('tab-active', active);
+        t.classList.toggle('tab-inactive', !active);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection(t.dataset.target);
+      });
+    });
+
+    // Food filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const foodItems = document.querySelectorAll('.food-item');
+
+    function filterFood(cat) {
+      foodItems.forEach(it => {
+        const cats = (it.dataset.cat || '').split(' ');
+        it.classList.toggle('hidden', !(cat === 'all' || cats.includes(cat)));
+      });
+      filterBtns.forEach(btn => {
+        const on = btn.dataset.filter === cat;
+        btn.classList.toggle('bg-blue-600', on);
+        btn.classList.toggle('text-white', on);
+        btn.classList.toggle('bg-slate-100', !on);
+        btn.classList.toggle('text-slate-800', !on);
+      });
+    }
+
+    filterBtns.forEach(btn => btn.addEventListener('click', () => filterFood(btn.dataset.filter)));
+    filterFood('all');
+
+    // Charts
+    function initCharts() {
+      const barCtx = document.getElementById('timeCostBar');
+      if (barCtx && window.Chart) {
+        new Chart(barCtx, {
+          type: 'bar',
+          data: {
+            labels: ['鶯歌→板橋', '板橋→土城（海山）', '土城小米→ASE', '土城→板橋（府中）', '板橋→鶯歌'],
+            datasets: [
+              { label: '時間（分鐘）', data: [20, 30, 15, 30, 20] },
+              { label: '費用（元/人）', data: [30, 25, 0, 25, 30] }
+            ]
+          },
+          options: {
+            responsive: true,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              tooltip: { callbacks: {
+                label: (ctx) => `${ctx.dataset.label}：${ctx.formattedValue}${ctx.dataset.label.includes('時間') ? ' 分' : ' 元'}`
+              }},
+              legend: { position: 'bottom' }
+            },
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+
+      const pieCtx = document.getElementById('stayPie');
+      if (pieCtx && window.Chart) {
+        new Chart(pieCtx, {
+          type: 'pie',
+          data: {
+            labels: ['小米之家', 'ASE PLAZA 逛街/午餐', '府中拍照/逛街', '南雅夜市美食（含波霸）'],
+            datasets: [{ label: '停留時間（分鐘）', data: [60, 120, 90, 150] }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' },
+              tooltip: { callbacks: { label: (ctx) => `${ctx.label}：${ctx.formattedValue} 分` } }
+            }
+          }
+        });
+      }
+    }
+
+    window.addEventListener('load', initCharts);
+  </script>
+</body>
+</html>
